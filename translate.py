@@ -28,7 +28,14 @@ def translate_sequence(rna_sequence, genetic_code):
     str
         A string of the translated amino acids.
     """
-    pass
+# For rna_sequence in genetic_code:
+   # if (rna_sequence) == ""
+   #    print ("STOP")
+   # elif (rna_sequence) == "*"
+   #    print ("STOP")
+   # else
+   #    print(rna_sequence)
+   # pass
 
 def get_all_translations(rna_sequence, genetic_code):
     """Get a list of all amino acid sequences encoded by an RNA sequence.
@@ -75,7 +82,13 @@ def get_reverse(sequence):
     >>> get_reverse('AUGC')
     'CGUA'
     """
-    pass
+    count= -1
+    reverse=""
+    for letter in sequence:
+        reverse=reverse+(sequence[count])
+        count=count-1
+    return reverse.upper()
+    
 
 def get_complement(sequence):
     """Get the complement of a `sequence` of nucleotides.
@@ -89,9 +102,46 @@ def get_complement(sequence):
     >>> get_complement('AUGC')
     'UACG'
     """
-    pass
+    complement=""
+    for letter in sequence:
+        if letter == "U":
+            complement=complement+"A"
+        elif letter == "A":
+            complement=complement+"U"
+        elif letter == "C":
+            complement=complement+"G"
+        elif letter == "G":
+            complement=complement+"C"
+        else:
+            complement=complement+""
+    return complement.upper()
 
-def reverse_and_complement(sequence):
+def get_complement(sequence):
+    """Get the complement of a `sequence` of nucleotides.
+
+    Returns a string with the complementary sequence of `sequence`.
+
+    If `sequence` is empty, an empty string is returned.
+
+    Examples
+    --------
+    >>> get_complement('AUGC')
+    'UACG'
+    """
+    sequence=sequence.upper()
+    complement=""
+    for letter in sequence:
+        if letter == "U":
+            complement=complement+"A"
+        elif letter == "A":
+            complement=complement+"U"
+        elif letter == "C":
+            complement=complement+"G"
+        elif letter == "G":
+            complement=complement+"C"
+        else:
+            complement=complement+""
+    return complement.upper()def reverse_and_complement(sequence):
     """Get the reversed and complemented form of a `sequence` of nucleotides.
 
     Returns a string that is the reversed and complemented sequence
