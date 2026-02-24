@@ -102,6 +102,7 @@ def get_complement(sequence):
     >>> get_complement('AUGC')
     'UACG'
     """
+    sequence=sequence.upper()
     complement=""
     for letter in sequence:
         if letter == "U":
@@ -116,32 +117,7 @@ def get_complement(sequence):
             complement=complement+""
     return complement.upper()
 
-def get_complement(sequence):
-    """Get the complement of a `sequence` of nucleotides.
-
-    Returns a string with the complementary sequence of `sequence`.
-
-    If `sequence` is empty, an empty string is returned.
-
-    Examples
-    --------
-    >>> get_complement('AUGC')
-    'UACG'
-    """
-    sequence=sequence.upper()
-    complement=""
-    for letter in sequence:
-        if letter == "U":
-            complement=complement+"A"
-        elif letter == "A":
-            complement=complement+"U"
-        elif letter == "C":
-            complement=complement+"G"
-        elif letter == "G":
-            complement=complement+"C"
-        else:
-            complement=complement+""
-    return complement.upper()def reverse_and_complement(sequence):
+def reverse_and_complement(sequence):
     """Get the reversed and complemented form of a `sequence` of nucleotides.
 
     Returns a string that is the reversed and complemented sequence
@@ -154,7 +130,25 @@ def get_complement(sequence):
     >>> reverse_and_complement('AUGC')
     'GCAU'
     """
-    pass
+    count= -1
+    reverse=""
+    for letter in sequence:
+        reverse=reverse+(sequence[count])
+        count=count-1
+    sequence=reverse.upper()
+    complement=""
+    for letter in sequence:
+        if letter == "U":
+            complement=complement+"A"
+        elif letter == "A":
+            complement=complement+"U"
+        elif letter == "C":
+            complement=complement+"G"
+        elif letter == "G":
+            complement=complement+"C"
+        else:
+            complement=complement+""
+    return complement
 
 def get_longest_peptide(rna_sequence, genetic_code):
     """Get the longest peptide encoded by an RNA sequence.
